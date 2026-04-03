@@ -1,0 +1,25 @@
+#ifndef FILTERSTACK_H
+#define FILTERSTACK_H
+
+#include "filter.h"
+#include <cstdint>
+#include <memory>
+#include <vector>
+
+class FilterStack {
+public:
+    void addFilter(std::unique_ptr<ImageFilter> filter);
+    void removeFilter(int index);
+    void clear();
+
+    const std::vector<std::unique_ptr<ImageFilter>> &filters() const {
+        return filters_;
+    }
+
+    std::vector<uint8_t> generateCompositeLUT() const;
+
+private:
+    std::vector<std::unique_ptr<ImageFilter>> filters_;
+};
+
+#endif

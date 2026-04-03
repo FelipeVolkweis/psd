@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/ResizeHandle.qml</file>
+        <file>qml/RotateHandle.qml</file>
+        <file>qml/MainToolBar.qml</file>
+        <file>qml/FilterSidebar.qml</file>
+    </qresource>
+</RCC>
