@@ -3,6 +3,10 @@
 
 #include "filter.h"
 
+/**
+ * @brief Filtro de transformação logarítmica.
+ * Realiza o mapeamento das intensidades dos pixels para uma escala logarítmica.
+ */
 class LogFilter : public ImageFilter {
 public:
     explicit LogFilter(float c = 1.0f);

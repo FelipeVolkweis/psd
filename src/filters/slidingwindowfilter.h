@@ -3,6 +3,11 @@
 
 #include "filter.h"
 
+/**
+ * @brief Filtro de processamento baseado em deslocamento de valores de intensidade,
+ * *aplicando um deslocamento cíclico (offset) aos valores
+ * de cor baseado no parâmetro windowValue_.
+ */
 class SlidingWindowFilter : public ImageFilter {
 public:
     explicit SlidingWindowFilter(int windowValue = 0);

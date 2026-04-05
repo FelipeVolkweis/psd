@@ -6,6 +6,10 @@
 
 class Rotation : public Transformation {
 public:
+    /**
+     * @brief Cria uma transformacão de rotação.
+     * @param angle Ângulo de rotação em radiamos.
+     */
     explicit Rotation(float angle) {
         float c = std::cos(angle);
         float s = std::sin(angle);

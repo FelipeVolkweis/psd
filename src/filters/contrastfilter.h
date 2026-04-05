@@ -13,6 +13,11 @@ struct ContrastPoint {
     }
 };
 
+/**
+ * @brief Filtro de ajuste de contraste por interpolação linear.
+ * Permite a definição de uma curva de transferência personalizada através de pontos
+ * de controle.
+ */
 class ContrastFilter : public ImageFilter {
 public:
     ContrastFilter();

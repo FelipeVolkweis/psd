@@ -3,6 +3,10 @@
 
 #include "filter.h"
 
+/**
+ * @brief Filtro de correção gamma.
+ * Aplica uma curva exponencial às intensidades da imagem.
+ */
 class GammaFilter : public ImageFilter {
 public:
     explicit GammaFilter(float gamma = 1.0f);

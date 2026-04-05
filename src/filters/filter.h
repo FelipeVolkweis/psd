@@ -5,6 +5,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief Interface base para filtros de processamento de imagem.
+ * Define a interface para filtros que operam transformando a intensidade dos pixels
+ * através de uma lookup table.
+ */
 class ImageFilter {
 public:
     virtual ~ImageFilter() = default;

@@ -12,6 +12,9 @@
 
 class FilterListModel;
 
+/**
+ * @brief Provedor de imagem para interação com o QML.
+ */
 class ImageProvider : public QQuickImageProvider {
 public:
     ImageProvider() : QQuickImageProvider(QQuickImageProvider::Image) {
@@ -36,6 +39,9 @@ private:
     std::mutex mutex_;
 };
 
+/**
+ * @brief Controlador principal da imagem e seus filtros.
+ */
 class ImageController : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool hasImage READ hasImage NOTIFY hasImageChanged)
