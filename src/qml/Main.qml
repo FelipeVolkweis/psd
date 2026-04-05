@@ -89,8 +89,8 @@ ApplicationWindow {
 
                     Rectangle {
                         id: scrollContent
-                        width: Math.max((imageController.canvasWidth * root.zoomFactor) + 200, canvasScrollView.width)
-                        height: Math.max((imageController.canvasHeight * root.zoomFactor) + 200, canvasScrollView.height)
+                        width: Math.max((imageController.canvasWidth * root.zoomFactor) + 50, canvasScrollView.width)
+                        height: Math.max((imageController.canvasHeight * root.zoomFactor) + 50, canvasScrollView.height)
                         color: "#333333"
 
                         // Zoom MouseArea
