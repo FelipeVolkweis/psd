@@ -34,6 +34,7 @@ Rectangle {
                 MenuItem { text: "Gamma"; onClicked: imageController.addGammaFilter(1.0) }
                 MenuItem { text: "Log"; onClicked: imageController.addLogFilter(1.0) }
                 MenuItem { text: "Contrast"; onClicked: imageController.addContrastFilter(0.0) }
+                MenuItem { text: "Sliding Window"; onClicked: imageController.addSlidingWindowFilter(0) }
             }
         }
 
@@ -84,19 +85,20 @@ Rectangle {
                         }
                     }
 
-                    // Show slider for Gamma, Log
+                    // Show slider for Gamma, Log, Sliding Window
                     ColumnLayout {
-                        visible: filterDelegate.fName === "Gamma" || filterDelegate.fName === "Log"
+                        visible: filterDelegate.fName === "Gamma" || filterDelegate.fName === "Log" || filterDelegate.fName === "Sliding Window"
                         Layout.fillWidth: true
                         spacing: 2
                         RowLayout {
-                            Label { text: filterDelegate.fName === "Gamma" ? "Gamma:" : "C:"; color: "white" }
-                            Label { text: filterDelegate.fValue !== undefined ? filterDelegate.fValue.toFixed(2) : "1.00"; color: "#aaa" }
+                            Label { text: filterDelegate.fName === "Gamma" ? "Gamma:" : (filterDelegate.fName === "Log" ? "C:" : "Window:"); color: "white" }
+                            Label { text: filterDelegate.fValue !== undefined ? (filterDelegate.fName === "Sliding Window" ? filterDelegate.fValue.toString() : filterDelegate.fValue.toFixed(2)) : "1.00"; color: "#aaa" }
                         }
                         Slider {
-                            from: 0.01
-                            to: 5.0
-                            value: filterDelegate.fValue !== undefined ? filterDelegate.fValue : 1.0
+                            from: filterDelegate.fName === "Sliding Window" ? 0 : 0.01
+                            to: filterDelegate.fName === "Sliding Window" ? 255 : 5.0
+                            stepSize: filterDelegate.fName === "Sliding Window" ? 1 : 0
+                            value: filterDelegate.fValue !== undefined ? filterDelegate.fValue : (filterDelegate.fName === "Sliding Window" ? 0 : 1.0)
                             Layout.fillWidth: true
                             onMoved: imageController.updateFilterValue(filterDelegate.fIndex, value)
                         }

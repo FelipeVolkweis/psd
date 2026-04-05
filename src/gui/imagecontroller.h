@@ -66,6 +66,7 @@ public:
     Q_INVOKABLE void addGammaFilter(float gamma);
     Q_INVOKABLE void addLogFilter(float c);
     Q_INVOKABLE void addContrastFilter(float contrast);
+    Q_INVOKABLE void addSlidingWindowFilter(int windowValue);
     Q_INVOKABLE void addContrastPoint(int filterIndex, int r, int s);
     Q_INVOKABLE void removeContrastPoint(int filterIndex, int pointIndex);
     Q_INVOKABLE void updateContrastPoint(int filterIndex, int pointIndex, int r, int s);

@@ -2,6 +2,7 @@
 #include "filters/contrastfilter.h"
 #include "filters/gammafilter.h"
 #include "filters/logfilter.h"
+#include "filters/slidingwindowfilter.h"
 #include <QVariantMap>
 
 FilterListModel::FilterListModel(FilterStack &stack, QObject *parent)
@@ -27,6 +28,8 @@ QVariant FilterListModel::data(const QModelIndex &index, int role) const {
             return f->gamma();
         } else if (auto f = dynamic_cast<LogFilter *>(filter.get())) {
             return f->c();
+        } else if (auto f = dynamic_cast<SlidingWindowFilter *>(filter.get())) {
+            return f->windowValue();
         }
     } else if (role == PointsRole) {
         if (auto contrastFilter = dynamic_cast<ContrastFilter *>(filter.get())) {

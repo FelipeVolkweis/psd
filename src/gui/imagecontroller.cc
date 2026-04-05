@@ -4,6 +4,7 @@
 #include "filters/gammafilter.h"
 #include "filters/inversefilter.h"
 #include "filters/logfilter.h"
+#include "filters/slidingwindowfilter.h"
 #include "transformations/rotation.h"
 #include "transformations/scale.h"
 #include "transformations/translation.h"
@@ -252,6 +253,12 @@ void ImageController::addContrastFilter(float contrast) {
     applyFilters();
 }
 
+void ImageController::addSlidingWindowFilter(int windowValue) {
+    filterStack_.addFilter(std::make_unique<SlidingWindowFilter>(windowValue));
+    filterModel_->notifyFilterAdded();
+    applyFilters();
+}
+
 void ImageController::addContrastPoint(int filterIndex, int r, int s) {
     const auto &filters = filterStack_.filters();
     if (filterIndex >= 0 && filterIndex < static_cast<int>(filters.size())) {
@@ -309,6 +316,9 @@ void ImageController::updateFilterValue(int index, float value) {
             changed = true;
         } else if (auto f = dynamic_cast<LogFilter *>(filter.get())) {
             f->setC(value);
+            changed = true;
+        } else if (auto f = dynamic_cast<SlidingWindowFilter *>(filter.get())) {
+            f->setWindowValue(static_cast<int>(std::round(value)));
             changed = true;
         }
         if (changed) {
