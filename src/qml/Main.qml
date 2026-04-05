@@ -9,7 +9,7 @@ ApplicationWindow {
     visible: true
     width: 1024
     height: 768
-    title: "Photoshop Clone"
+    title: "Photoshop Gambiarra"
 
     header: MainToolBar {}
 
@@ -73,7 +73,7 @@ ApplicationWindow {
 
                 Text {
                     anchors.centerIn: parent
-                    text: "No Canvas"
+                    text: "Sem Imagem"
                     color: "#999999"
                     font.pixelSize: 24
                     visible: !imageController.hasImage

@@ -15,7 +15,7 @@ Rectangle {
         spacing: 10
 
         Label {
-            text: "Filter Pipeline"
+            text: "Filtros"
             font.bold: true
             font.pixelSize: 18
             color: "white"
@@ -23,7 +23,7 @@ Rectangle {
         }
 
         Button {
-            text: "Add Filter"
+            text: "Adicionar Filtro"
             Layout.fillWidth: true
             onClicked: addFilterMenu.open()
 
@@ -117,7 +117,7 @@ Rectangle {
                                 spacing: 1
                                 RowLayout {
                                     spacing: 5
-                                    Label { text: "Point " + index + ": (" + modelData.r + ", " + modelData.s + ")"; color: "white"; font.pixelSize: 10 }
+                                    Label { text: "Ponto " + index + ": (" + modelData.r + ", " + modelData.s + ")"; color: "white"; font.pixelSize: 10 }
                                     Item { Layout.fillWidth: true }
                                     Button {
                                         text: "✕"
@@ -149,7 +149,7 @@ Rectangle {
                             }
                         }
                         Button {
-                            text: "+ Add Point"
+                            text: "+ Adicionar Ponto"
                             onClicked: imageController.addContrastPoint(filterDelegate.fIndex, 128, 128)
                             Layout.fillWidth: true
                             visible: filterDelegate.fName === "Contrast"
@@ -160,7 +160,7 @@ Rectangle {
         }
 
         Button {
-            text: "Clear All"
+            text: "Limpar"
             Layout.fillWidth: true
             onClicked: imageController.clearFilters()
             visible: filterListView.count > 0

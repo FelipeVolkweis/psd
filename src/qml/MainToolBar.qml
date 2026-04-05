@@ -8,7 +8,7 @@ ToolBar {
     
     FileDialog {
         id: openDialog
-        title: "Please choose an image file"
+        title: "Escolha uma imagem"
         nameFilters: ["Image Files (*.png *.jpg *.jpeg *.bmp)"]
         fileMode: FileDialog.OpenFile
         onAccepted: imageController.loadImage(selectedFile)
@@ -16,7 +16,7 @@ ToolBar {
 
     FileDialog {
         id: saveDialog
-        title: "Save Canvas"
+        title: "Salvar Imagem"
         nameFilters: ["Image Files (*.png *.jpg)"]
         fileMode: FileDialog.SaveFile
         onAccepted: imageController.saveImage(selectedFile)
@@ -24,8 +24,8 @@ ToolBar {
 
     RowLayout {
         anchors.fill: parent
-        Button { text: "Load"; onClicked: openDialog.open() }
-        Button { text: "Save"; onClicked: saveDialog.open() }
+        Button { text: "Abrir"; onClicked: openDialog.open() }
+        Button { text: "Salvar"; onClicked: saveDialog.open() }
         Item { Layout.fillWidth: true }
         Label { text: "Canvas W:" }
         SpinBox { 
@@ -42,11 +42,11 @@ ToolBar {
             editable: true 
         }
         Button {
-            text: "Update Size"
+            text: "Atualizar Tamanho"
             onClicked: imageController.setCanvasSize(wInput.value, hInput.value)
         }
         Button {
-            text: "Fit to Image"
+            text: "Croppar Imagem"
             onClicked: imageController.fitCanvasToImage()
         }
     }
