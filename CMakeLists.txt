@@ -9,7 +9,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 COMPONENTS Quick REQUIRED)
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(Eigen3 REQUIRED NO_MODULE)
 
 file(GLOB_RECURSE SOURCES "src/*.cc" "src/*.h" "src/*.qrc")
 add_executable(psd ${SOURCES})
